@@ -12,6 +12,2661 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- This site is optimized with the Yoast SEO plugin v21.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Escape Beach Fest</title>
+
+	<script src="js/js-jquery-3.2.1.min.js"></script>
+	<script src="js/js-filter-multi-select-bundle.min.js"></script>
+
+	<link rel="stylesheet" href="styles.css">
+
+	<style>
+		#select-second-section-container {
+			/* font-family: "Stretch_Pro", sans-serif; */
+
+		}
+
+		#select-second-section-container #ww .nav {
+			/* ***************** FILTER / NAV SECTION ***************** */
+			-ms-flex-align: center;
+			align-items: center;
+			background-color: transparent;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			margin-bottom: 15px;
+			text-align: center;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .nav .view {
+			/*ARTIST / SCHEDULE VIEW (FULL FOLDER ONLY) */
+			display: -ms-flexbox;
+			display: flex;
+			padding: 10px;
+		}
+
+		#select-second-section-container #ww .nav .view .artist {
+			border-right: 1px solid #000000;
+			-ms-flex-preferred-size: 50%;
+			flex-basis: 50%;
+			padding-right: 25px;
+			text-align: right;
+		}
+
+		#select-second-section-container #ww .nav .view .schedule {
+			-ms-flex-preferred-size: 50%;
+			flex-basis: 50%;
+			padding-left: 25px;
+			text-align: left;
+		}
+
+		#select-second-section-container #ww .nav .filter {
+			/*SEARCH BOX*/
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-pack: center;
+			justify-content: center;
+			max-width: 100%;
+			padding: 10px 0;
+			position: relative;
+			width: 280px;
+		}
+
+		#select-second-section-container #ww .nav .filter input {
+			background-color: transparent;
+			background-image: none;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border: 1px solid #000000;
+			border-radius: 6px;
+			color: #000000;
+			font-size: 1rem;
+			font-weight: 300;
+			max-width: 100%;
+			overflow: hidden;
+			padding: 12px 24px;
+			transition: all 0.2s;
+			width: 280px;
+		}
+
+		#select-second-section-container #ww .nav .filter input:-ms-input-placeholder {
+			color: #000000;
+		}
+
+		#select-second-section-container #ww .nav .filter input::placeholder {
+			color: #000000;
+		}
+
+		#select-second-section-container #ww .nav .filter input:focus {
+			background-color: transparent;
+			border: 1px solid #000000;
+			box-shadow: none;
+			color: #000000;
+			outline: none;
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .filter input:focus:-ms-input-placeholder {
+			color: transparent;
+		}
+
+		#select-second-section-container #ww .nav .filter input:focus::placeholder {
+			color: transparent;
+		}
+
+		#select-second-section-container #ww .nav .filter svg {
+			color: #000000;
+			fill: #000000;
+			opacity: 0.8;
+			position: absolute;
+			right: 1rem;
+			top: 50%;
+			transform: translateY(-8px);
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .filter svg path {
+			fill: #000000;
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .filter input:focus+svg {
+			color: #000000;
+			fill: #000000;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .filter input:focus+svg path {
+			color: #000000;
+			fill: #000000;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .showGroups {
+			/*BY TIME / BY PLACE TOGGLE (FULL FOLDER ONLY) */
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-pack: center;
+			justify-content: center;
+			padding: 10px;
+		}
+
+		#select-second-section-container #ww .nav .showGroups .byTime {
+			border-right: 1px solid #000000;
+			-ms-flex-preferred-size: 50%;
+			flex-basis: 50%;
+			padding-right: 25px;
+			text-align: right;
+		}
+
+		#select-second-section-container #ww .nav .showGroups .byPlace {
+			-ms-flex-preferred-size: 50%;
+			flex-basis: 50%;
+			padding-left: 25px;
+			text-align: left;
+		}
+
+		#select-second-section-container #ww .nav .displayMode {
+			/*GRID / LIST TOGGLE*/
+			min-height: 35px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		#select-second-section-container #ww .nav .displayMode svg {
+			all: initial;
+			cursor: pointer;
+			height: 20px;
+			padding: 5px;
+			transition: all 0.2s;
+			width: 20px;
+		}
+
+		#select-second-section-container #ww .nav .displayMode svg path {
+			fill: #000000;
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .displayMode svg.active {
+			fill: #0075dd;
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .displayMode svg.active path {
+			fill: #0075dd;
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .displayMode svg:hover {
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .displayMode svg:hover path {
+			fill: #0075dd;
+			transition: all 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups {
+			/* TOGGLE AZ/BY WEEKEND*/
+			display: -ms-flexbox;
+			display: flex;
+			font-weight: 700;
+			-ms-flex-pack: center;
+			justify-content: center;
+			padding: 10px;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups .cursor-pointer {
+			color: #000000;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups .cursor-pointer.active,
+		#select-second-section-container #ww .nav .artistGroups .cursor-pointer:hover {
+			color: #0075dd;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups.artist .byAz {
+			padding: 0 15px;
+			text-align: center;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups.artist .byDay,
+		#select-second-section-container #ww .nav .artistGroups.artist .byHeadliner {
+			display: none;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups.headliner .byAz,
+		#select-second-section-container #ww .nav .artistGroups.headliner .byHeadliner {
+			padding: 0 15px;
+			text-align: center;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups.headliner .byDay {
+			display: none;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups.day .byAz,
+		#select-second-section-container #ww .nav .artistGroups.day .byDay,
+		#select-second-section-container #ww .nav .artistGroups.day .byHeadliner {
+			padding: 0 15px;
+			text-align: center;
+		}
+
+		#select-second-section-container #ww .nav .artistGroups.day .byHeadliner {
+			display: none;
+		}
+
+		#select-second-section-container #ww .nav .azNav {
+			/*A-Z NAV*/
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			font-family: "Stretch_Pro", sans-serif;
+			-ms-flex-pack: center;
+			justify-content: center;
+			margin: 0;
+			min-height: 92px;
+		}
+
+		#select-second-section-container #ww .nav .azNav .letter.cursor-pointer {
+			background-color: transparent;
+			background-image: none;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border: 1px solid #000000;
+			color: #000000;
+			cursor: pointer;
+			font-family: "Stretch_Pro", sans-serif;
+			height: 32px;
+			line-height: 32px;
+			margin-bottom: 0.5rem;
+			margin-left: -1px;
+			padding: 0;
+			text-align: center;
+			transition: background-color 0.2s, color 0.2s;
+			width: 32px;
+		}
+
+		#select-second-section-container #ww .nav .azNav .letter.cursor-pointer:hover {
+			background-color: transparent;
+			background-image: none;
+			color: #0075dd;
+			transition: background-color 0.2s, color 0.2s;
+		}
+
+		#select-second-section-container #ww .nav .showDays {
+			/*BY WEEKEND*/
+			display: -ms-flexbox;
+			display: flex;
+			font-size: 1.4rem;
+			-ms-flex-pack: center;
+			justify-content: center;
+			min-height: 92px;
+			padding: 10px 0 0;
+			text-align: center;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .nav .showDays .cursor-pointer {
+			color: #000000;
+		}
+
+		#select-second-section-container #ww .nav .showDays .cursor-pointer span.date,
+		#select-second-section-container #ww .nav .showDays .cursor-pointer span.day {
+			color: #000000;
+		}
+
+		#select-second-section-container #ww .nav .showDays .cursor-pointer.active,
+		#select-second-section-container #ww .nav .showDays .cursor-pointer:hover {
+			color: #0075dd;
+		}
+
+		#select-second-section-container #ww .nav .showDays .cursor-pointer.active span.date,
+		#select-second-section-container #ww .nav .showDays .cursor-pointer.active span.day,
+		#select-second-section-container #ww .nav .showDays .cursor-pointer:hover span.date,
+		#select-second-section-container #ww .nav .showDays .cursor-pointer:hover span.day {
+			color: #0075dd;
+		}
+
+		#select-second-section-container #ww .nav .showDays div {
+			padding: 0 20px 5px;
+		}
+
+		#select-second-section-container #ww .nav .showDays div .day {
+			font-weight: 600;
+		}
+
+		#select-second-section-container #ww .nav .showDays div .date {
+			font-weight: 400;
+		}
+
+		#select-second-section-container #ww .nav .showDays .active {
+			border-bottom: 3px solid;
+		}
+
+		#select-second-section-container #ww .artistGrid {
+			/* ***************** ARTIST GRID SECTION ***************** */
+			/* ***************** ARTIST GRID SECTION ***************** */
+			/* ***************** ARTIST GRID SECTION ***************** */
+			/* ***************** ARTIST GRID SECTION ***************** */
+			column-gap: 1rem;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			padding: 0;
+			row-gap: 1rem;
+		}
+
+		#select-second-section-container #ww .artistGrid>div {
+			/* GRID CARD WRAP */
+			-ms-flex-preferred-size: 280px;
+			flex-basis: 280px;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile {
+			-ms-flex-align: center;
+			align-items: center;
+			background-image: none;
+			background-repeat: no-repeat;
+			background-size: cover;
+			bottom: 0;
+			box-sizing: border-box;
+			color: #fffff5;
+			font-family: "Stretch_Pro", sans-serif;
+			font-size: 18px;
+			font-weight: 800;
+			height: auto;
+			-ms-flex-pack: center;
+			justify-content: center;
+			letter-spacing: normal;
+			line-height: 1em;
+			perspective: 800px;
+			position: relative;
+			transition: color 0.2s;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card {
+			background-color: transparent;
+			border: 0;
+			height: auto;
+			-ms-flex-pack: stretch;
+			justify-content: stretch;
+			padding-top: 115%;
+			position: relative;
+			transform-style: preserve-3d;
+			transition: transform 0.4s;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face {
+			backface-visibility: hidden;
+			background-color: #0075dd;
+			border-radius: 6px;
+			bottom: 0;
+			height: auto;
+			left: 0;
+			overflow: hidden;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face .title {
+			background-color: #0075dd;
+			color: #fffff5;
+			font-family: "Stretch_Pro", sans-serif;
+			height: auto;
+			padding: 15px 24px;
+			text-align: center;
+			text-transform: uppercase;
+			transition: color 0.2s;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face .title:hover {
+			color: #F36DC5;
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face .title .back {
+			background-color: transparent;
+			left: 8px;
+			margin-left: 0;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-11px);
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face .title .back svg path {
+			fill: #fffff5;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face .title hr {
+			display: none;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--front {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--front .img {
+			aspect-ratio: 1;
+			background-position: center top;
+			background-size: 100% auto;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+			-ms-flex-negative: 1;
+			flex-shrink: 1;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--front .title {
+			bottom: 0;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+			left: 0;
+			position: absolute;
+			right: 0;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back {
+			background-color: transparent;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			overflow: hidden;
+			transform: rotateY(180deg);
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .title {
+			position: relative;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail {
+			background-color: #0075dd;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links {
+			/*ARTIST SOCIAL ICONS*/
+			background-color: #0084e6;
+			border-bottom: 1px solid #fffff5;
+			border-top: 1px solid #fffff5;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-pack: distribute;
+			justify-content: space-around;
+			min-height: 36px;
+			padding: 5px;
+			transition: color 0.2s, fill 0.2s;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span {
+			-ms-flex-item-align: center;
+			align-self: center;
+			font-size: 1.5rem;
+			height: 24px;
+			line-height: 24px;
+			transition: color 0.2s, fill 0.2s;
+			width: 24px;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span a {
+			display: block;
+			height: 24px;
+			line-height: 0;
+			text-align: center;
+			transition: color 0.2s, fill 0.2s;
+			width: 24px;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span a svg {
+			fill: #fffff5;
+			height: 24px;
+			padding: 0;
+			transition: color 0.2s, fill 0.2s;
+			width: 24px;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span a svg path {
+			fill: #fffff5;
+			transition: color 0.2s, fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span a:hover {
+			transition: color 0.2s, fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span a:hover svg {
+			fill: #F36DC5;
+			transition: color 0.2s, fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .links span a:hover svg path {
+			fill: #F36DC5;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .description {
+			/*ARTIST BIO*/
+			background-color: #0075dd;
+			color: #fffff5;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+			font-family: "Comfortaa", sans-serif;
+			font-size: 18px;
+			font-weight: normal;
+			line-height: 1.5em;
+			max-height: 275px;
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding: 12px;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .description::-webkit-scrollbar {
+			width: 10px;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .description::-webkit-scrollbar-track {
+			background-color: #0075dd;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .description::-webkit-scrollbar-thumb {
+			background-color: #fffff5;
+			border-radius: 5px;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card .card_face.card_face--back .detail .description::-webkit-scrollbar-thumb:hover {
+			background-color: #F36DC5;
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card.is-flipped {
+			/*FLIPPED CARD*/
+			transform: rotateY(180deg);
+		}
+
+		#select-second-section-container #ww .artistGrid>div .scene.artistTile .card.is-flipped .card_face.card_face--front.cursor-pointer {
+			background-color: transparent;
+		}
+
+		@media screen and (min-width: 1433px) {
+			#select-second-section-container #ww .artistGrid>div {
+				max-width: calc(25% - 0.75rem);
+			}
+		}
+
+		@media screen and (min-width: 1061px) and (max-width: 1432px) {
+			#select-second-section-container #ww .artistGrid>div {
+				max-width: calc(33.333% - 0.6666666667rem);
+			}
+		}
+
+		@media screen and (min-width: 768px) and (max-width: 1060px) {
+			#select-second-section-container #ww .artistGrid>div {
+				max-width: calc(50% - 0.5rem);
+			}
+		}
+
+		#select-second-section-container #ww .showGrouping {
+			/* ***************** SHOW GROUPING SECTION ***************** */
+			background-color: transparent;
+			color: #000000;
+			font-weight: 600;
+			padding: 10px;
+		}
+
+		#select-second-section-container #ww .scheduleGrid {
+			display: grid;
+			grid-auto-rows: 1fr;
+			grid-gap: 20px;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			-ms-flex-pack: center;
+			justify-content: center;
+			padding: 15px 0;
+		}
+
+		#select-second-section-container #ww .artistList,
+		#select-second-section-container #ww .scheduleList {
+			padding: 0;
+		}
+
+		#select-second-section-container #ww .artistList>div,
+		#select-second-section-container #ww .scheduleList>div {
+			max-width: 100%;
+		}
+
+		#select-second-section-container #ww .artistList>div .table,
+		#select-second-section-container #ww .scheduleList>div .table {
+			margin-bottom: 0;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row,
+		#select-second-section-container #ww .scheduleList>div .table .row {
+			-ms-flex-align: center;
+			align-items: center;
+			background-color: #0075dd;
+			background-image: none;
+			background-repeat: no-repeat;
+			background-size: cover;
+			border-bottom: 1px solid #fffff5;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			margin: 0;
+			transition: background-color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col1,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col1 {
+			-ms-flex-align: start;
+			align-items: flex-start;
+			background-color: transparent;
+			border-bottom: 0;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-positive: initial;
+			flex-grow: initial;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-ms-flex-order: 1;
+			order: 1;
+			padding: 5px;
+			width: 200px;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col1 .img,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col1 .img {
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 190px;
+			width: 190px;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col1.time,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col1.time {
+			-ms-flex-align: center;
+			align-items: center;
+			-ms-flex-item-align: stretch;
+			align-self: stretch;
+			border-bottom: 0;
+			border-bottom: 0;
+			border-left-color: #fffff5;
+			border-left-style: solid;
+			border-left-width: 1px;
+			border-right-color: #fffff5;
+			border-right-style: solid;
+			border-right-width: 1px;
+			border-top: 0;
+			border-top: 0;
+			color: #fffff5;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-pack: center;
+			justify-content: center;
+			min-width: 140px;
+			-ms-flex-order: 2;
+			order: 2;
+			padding: 5px;
+			text-align: center;
+			transition: background-color 0.2s, color 0.2s;
+			white-space: nowrap;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 {
+			-ms-flex-align: start;
+			align-items: flex-start;
+			-ms-flex-item-align: stretch;
+			align-self: stretch;
+			background-color: transparent;
+			border-bottom: 0;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-ms-flex-order: 3;
+			order: 3;
+			padding: 5px;
+			transition: color 0.2s;
+			vertical-align: middle;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2 .title,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .title {
+			-ms-flex-align: start;
+			align-items: flex-start;
+			-ms-flex-item-align: center;
+			align-self: center;
+			background-color: transparent;
+			color: #fffff5;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			font-family: "Stretch_Pro", sans-serif;
+			font-size: 32px;
+			font-weight: 800;
+			-ms-flex-pack: center;
+			justify-content: center;
+			line-height: normal;
+			margin-left: 15px;
+			overflow: hidden;
+			padding: 0;
+			position: relative;
+			text-transform: uppercase;
+			transition: color 0.2s;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2 .title hr,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .title hr {
+			display: none;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2 .title .stage,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .title .stage {
+			-ms-flex-item-align: center;
+			align-self: center;
+			color: #fffff5;
+			letter-spacing: normal;
+			line-height: 19px;
+			margin-left: auto;
+			margin-right: 25px;
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2 .action,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .action {
+			-ms-flex-item-align: center;
+			align-self: center;
+			border: 0;
+			height: 10px;
+			margin: 0 15px 0 auto;
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2 .action svg,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .action svg {
+			all: initial;
+			fill: #F36DC5;
+			transition: color 0.2s, fill 0.2s;
+			width: 15px;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row .col.col2 .action svg path,
+		#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .action svg path {
+			color: #fffff5;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row:hover,
+		#select-second-section-container #ww .scheduleList>div .table .row:hover {
+			transition: background-color 0.2s, color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row:hover .col.col2,
+		#select-second-section-container #ww .scheduleList>div .table .row:hover .col.col2 {
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row:hover .col.col2 .title,
+		#select-second-section-container #ww .scheduleList>div .table .row:hover .col.col2 .title {
+			color: #F36DC5;
+			text-transform: uppercase;
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row:hover .col.col2 .action,
+		#select-second-section-container #ww .scheduleList>div .table .row:hover .col.col2 .action {
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row:hover .col.col2 .action svg,
+		#select-second-section-container #ww .scheduleList>div .table .row:hover .col.col2 .action svg {
+			fill: #F36DC5;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .row:hover .col.col2 .action svg path,
+		#select-second-section-container #ww .scheduleList>div .table .row:hover .col.col2 .action svg path {
+			fill: #F36DC5;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption,
+		#select-second-section-container #ww .scheduleList>div .table .caption {
+			background-color: #0075dd;
+			background-image: none;
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: #fffff5;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail {
+			background-color: transparent;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div {
+			background-color: transparent;
+			padding: 0;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links {
+			background-color: #0084e6;
+			border-bottom: 1px solid #fffff5;
+			border-top: 0;
+			display: -ms-flexbox;
+			display: flex;
+			height: auto;
+			-ms-flex-pack: center;
+			justify-content: center;
+			padding: 10px;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span {
+			-ms-flex-align: center;
+			align-items: center;
+			-ms-flex-item-align: center;
+			align-self: center;
+			all: initial;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			height: 24px;
+			-ms-flex-pack: center;
+			justify-content: center;
+			margin: 0 10px;
+			width: 24px;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span a,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span a {
+			-ms-flex-align: center;
+			align-items: center;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			height: 24px;
+			-ms-flex-pack: center;
+			justify-content: center;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span a svg,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span a svg {
+			fill: #fffff5;
+			height: 24px;
+			transition: fill 0.2s;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span a svg path,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span a svg path {
+			fill: #fffff5;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span a:hover,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span a:hover {
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span a:hover svg,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span a:hover svg {
+			fill: #F36DC5;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .links span a:hover svg path,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .links span a:hover svg path {
+			fill: #F36DC5;
+			transition: fill 0.2s;
+		}
+
+		#select-second-section-container #ww .artistList>div .table .caption .detail>div .description,
+		#select-second-section-container #ww .scheduleList>div .table .caption .detail>div .description {
+			border-bottom: 1px solid rgba(242, 241, 223, 0.5);
+			color: #fffff5;
+			font-family: "Comfortaa", sans-serif;
+			min-height: 100px;
+			padding: 15px;
+		}
+
+		@media screen and (max-width: 767px) {
+
+			#select-second-section-container #ww .artistList>div .table,
+			#select-second-section-container #ww .scheduleList>div .table {
+				display: block;
+				margin-bottom: 0;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row,
+			#select-second-section-container #ww .scheduleList>div .table .row {
+				display: -ms-flexbox;
+				display: flex;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col1,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col1 {
+				-ms-flex-order: 1;
+				order: 1;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col1 .img,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col1 .img {
+				height: 180px;
+				width: 180px;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col1.time,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col1.time {
+				-ms-flex-order: 2;
+				order: 2;
+				padding: 5px;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col2,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col2 {
+				-ms-flex-align: center;
+				align-items: center;
+				display: -ms-flexbox;
+				display: flex;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-ms-flex-positive: 1;
+				flex-grow: 1;
+				-ms-flex-pack: center;
+				justify-content: center;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col2 .title,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .title {
+				-ms-flex-align: center;
+				align-items: center;
+				font-size: 4vw;
+				height: auto;
+				letter-spacing: normal;
+				margin: 0;
+				max-width: none;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col2 .title .stage,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .title .stage {
+				font-size: 1rem;
+				letter-spacing: normal;
+				margin: 10px 0;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .row .col.col2 .action,
+			#select-second-section-container #ww .scheduleList>div .table .row .col.col2 .action {
+				justify-self: center;
+				margin: 15px 0;
+			}
+
+			#select-second-section-container #ww .artistList>div .table .caption,
+			#select-second-section-container #ww .scheduleList>div .table .caption {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		#select-second-section-container #ww {
+			background-color: transparent;
+			font-family: "Comfortaa", sans-serif;
+			font-size: 18px;
+			font-weight: normal;
+			min-width: initial;
+			padding-top: 15px;
+		}
+
+		#select-second-section-container #ww .cursor-pointer {
+			color: #000000;
+			cursor: pointer;
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .cursor-pointer:hover {
+			color: #0075dd;
+			transition: color 0.2s;
+		}
+
+		#select-second-section-container #ww .cursor-pointer.active {
+			color: #0075dd;
+		}
+
+		#select-second-section-container #ww .loading {
+			-ms-flex-align: center;
+			align-items: center;
+			background-color: #0075dd;
+			color: #fffff5;
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			height: 315px;
+			-ms-flex-pack: center;
+			justify-content: center;
+			padding-top: 40px;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .loading>div div {
+			background-color: #fffff5;
+		}
+
+		#select-second-section-container #ww .artistTile .img {
+			-ms-flex-item-align: stretch;
+			align-self: stretch;
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 100%;
+		}
+
+		#select-second-section-container #ww .artistDetail.detail>div {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			overflow: hidden;
+		}
+
+		#select-second-section-container #ww .artistDetail.detail>div .description {
+			-ms-flex-positive: 1;
+			flex-grow: 1;
+		}
+
+		@media screen and (max-width: 699px) {
+			#select-second-section-container #ww {
+				-ms-flex-align: center;
+				align-items: center;
+				display: -ms-flexbox;
+				display: flex;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-ms-flex-pack: start;
+				justify-content: flex-start;
+			}
+		}
+
+		#select-second-section-container .c-header__logo {
+			background-image: url(https://aegwebprod.blob.core.windows.net/content/logo_images/466/nXacBZLx8jkaSIbLAwrdhTUIYfSmmkh1q7F8V8ka.png);
+		}
+
+		#select-second-section-container nav,
+		#select-second-section-container .c-header__link,
+		#select-second-section-container .c-news-card__date {
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+		}
+
+		#select-second-section-container .c-nav,
+		#select-second-section-container .c-nav__link,
+		#select-second-section-container .c-nav__link--nested {
+			color: #fffff5;
+		}
+
+		#select-second-section-container .c-header,
+		#select-second-section-container .c-nav,
+		#select-second-section-container .c-nav__list,
+		#select-second-section-container .c-nav__item,
+		#select-second-section-container .c-nav__list--nested {
+			background-color: #0075dd !important;
+		}
+
+		@font-face {
+			font-family: "Comfortaa";
+			src: url("https://aegwebprod.blob.core.windows.net/content/fonts/Comfortaa-Regular.ttf") format("truetype"), url("https://aegwebprod.blob.core.windows.net/content/fonts/Comfortaa-Regular.ttf") format("truetype");
+		}
+
+		@font-face {
+			font-family: "Stretch Pro";
+			src: url("https://aegwebprod.blob.core.windows.net/content/fonts/StretchPro.otf");
+		}
+
+		#select-second-section-container h2 {
+			font-size: 40px;
+			text-align: center;
+		}
+
+		#select-second-section-container h3 {
+			font-size: 28px;
+		}
+
+		#select-second-section-container h2,
+		#select-second-section-container h3,
+		#select-second-section-container h4 {
+			font-family: Stretch Pro;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		#select-second-section-container h4 {
+			font-size: 20px;
+			font-weight: 400;
+			text-transform: uppercase;
+			word-wrap: break-word;
+		}
+
+		#select-second-section-container p {
+			font-size: 18px;
+			font-family: Comfortaa;
+			font-weight: 400;
+			line-height: 28x;
+			word-wrap: break-word;
+		}
+
+		#select-second-section-container .u-img-respond {
+			width: 100%;
+		}
+
+		#select-second-section-container .sold-out {
+			text-decoration: line-through;
+			font-style: italic;
+			opacity: 0.6;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container h2 {
+				font-size: 28px;
+			}
+
+			#select-second-section-container h3 {
+				font-size: 24px;
+			}
+
+			#select-second-section-container p {
+				font-size: 18px;
+			}
+		}
+
+		#select-second-section-container ul,
+		#select-second-section-container ol {
+			padding-left: 20px;
+		}
+
+		#select-second-section-container ul li,
+		#select-second-section-container ol li {
+			/*  margin-bottom: 5px; */
+			margin-left: 20px;
+			line-height: 1.8em;
+		}
+
+		#select-second-section-container ul.c-accordion li {
+			margin-left: 0;
+			font-size: 18px;
+		}
+
+		#select-second-section-container ul li.c-footer__link--legal-links,
+		#select-second-section-container ul li.c-nav__item--nested {
+			margin-left: 0;
+		}
+
+		#select-second-section-container .c-accordion-title:after,
+		#select-second-section-container .c-accordion-title:before {
+			margin-top: 2px;
+		}
+
+		@media (max-width: 767px) {
+
+			#select-second-section-container .c-accordion-title:after,
+			#select-second-section-container .c-accordion-title:before {
+				margin-top: -2px;
+			}
+		}
+
+		#select-second-section-container a.js-accordion-trigger {
+			cursor: pointer;
+		}
+
+		#select-second-section-container .f-button svg {
+			stroke: #000;
+		}
+
+		#select-second-section-container .fancybox__backdrop {
+			/* background: linear-gradient(180deg, rgba(255,255,245,.7) 38%, rgba(0, 117, 221, .7) 69%) !important; */
+			background: var(--fancybox-content-bg, #F36DC5);
+		}
+
+		#select-second-section-container .fancybox__toolbar {
+			--f-button-bg: rgb(247, 242, 242);
+		}
+
+		#select-second-section-container .fancybox__content {
+			max-height: none;
+			background: var(--fancybox-content-bg, #F36DC5);
+		}
+
+		#select-second-section-container .fancybox__viewport {
+			margin-top: 110px;
+		}
+
+		#select-second-section-container div.fancybox__content img {
+			max-width: 100%;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .fancybox__content {
+				width: 95vh;
+				height: 95vh;
+			}
+
+			#select-second-section-container .fancybox__viewport {
+				margin-top: 20px;
+			}
+
+			#select-second-section-container .fancybox__slide.has-inline.has-close-btn.is-selected.is-done::before {
+				margin-top: 0;
+			}
+
+			#select-second-section-container .is-horizontal .f-carousel__nav .f-button.is-next,
+			#select-second-section-container .is-horizontal .f-carousel__nav .f-button.is-prev,
+			#select-second-section-container .is-horizontal .fancybox__nav .f-button.is-next,
+			#select-second-section-container .is-horizontal .fancybox__nav .f-button.is-prev {
+				top: 80%;
+			}
+
+			#select-second-section-container .fancybox__nav {
+				--f-button-bg: rgb(247, 242, 242);
+			}
+
+			#select-second-section-container .is-compact .fancybox__content>.f-button.is-close-btn {
+				--f-button-bg: rgb(247, 242, 242);
+			}
+		}
+
+		#select-second-section-container .anchor,
+		#select-second-section-container section.c-newsletter21647 {
+			scroll-margin-top: 100px;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .anchor {
+				scroll-margin-top: 80px;
+			}
+		}
+
+		#select-second-section-container .fancybox__container {
+			z-index: 3000 !important;
+		}
+
+		#select-second-section-container .c-header {
+			border-bottom: 3px solid #ffffff;
+		}
+
+		#select-second-section-container a.c-nav__link {
+			font-size: 30px;
+		}
+
+		@media (max-width: 676px) {
+			#select-second-section-container ul li.c-nav__item--nested {
+				margin: 20px 0 0 10px;
+			}
+
+			#select-second-section-container .c-nav__list.o-list-inline.o-list-unstyled.u-spacing-none {
+				margin: 0 45px;
+			}
+
+			#select-second-section-container a.c-nav__link {
+				font-size: 40px;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .c-header {
+				min-height: 100px;
+			}
+		}
+
+		@media (min-width: 620px) {
+			#select-second-section-container .c-nav__item {
+				padding: 0 !important;
+				margin: 0 0.75rem;
+			}
+
+			#select-second-section-container .c-nav.js-nav-mobile {
+				height: 80px !important;
+			}
+
+			#select-second-section-container .c-nav__link--nested {
+				font-size: 24px !important;
+			}
+		}
+
+		#select-second-section-container .c-nav.js-nav-mobile {
+			height: 100vh;
+		}
+
+		#select-second-section-container .c-nav__item {
+			padding: 0 0 30px 0;
+		}
+
+		#select-second-section-container .c-nav__link--nested {
+			font-size: 40px;
+			text-transform: uppercase;
+		}
+
+		#select-second-section-container .js-nav-item-toggle.c-nav__toggle:before {
+			color: #fffff5;
+			width: 20px;
+			font-family: Apple SD Gothic Neo;
+		}
+
+		#select-second-section-container .c-hamburger__layer,
+		#select-second-section-container .c-hamburger.is-open:hover .c-hamburger__layer,
+		#select-second-section-container .c-hamburger:hover .c-hamburger__layer,
+		#select-second-section-container .is-open .c-hamburger__layer:nth-of-type(3) {
+			background-color: #ffffff;
+		}
+
+		#select-second-section-container .c-generic26135 {
+			padding: 0 !important;
+		}
+
+		#select-second-section-container .c-generic26135 .o-container {
+			padding: 0 !important;
+			margin: 0 !important;
+			max-width: 100%;
+		}
+
+		@media (min-width: 1200px) {
+			#select-second-section-container .c-generic26135 .o-container {
+				width: auto;
+			}
+		}
+
+		@media (min-width: 768px) {
+			#select-second-section-container .c-generic26135 .o-container {
+				width: auto;
+			}
+		}
+
+		#select-second-section-container #page-home .head-col-1-btn .primary-button {
+			padding: 10px 15px;
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .ticket-rotated-cards-parent {
+				justify-content: space-between !important;
+			}
+
+			#select-second-section-container .c-generic21649 .o-container .side-by-side-parent {
+				background-size: contain !important;
+			}
+
+			#select-second-section-container .c-generic21645 img,
+			#select-second-section-container .c-generic21646 img {
+				width: 443px !important;
+				height: 402px !important;
+			}
+
+			#select-second-section-container .head-col-1-text {
+				padding: 10px;
+			}
+
+			#select-second-section-container .head-col-1-text p {
+				font-size: 40px;
+			}
+
+			#select-second-section-container .head-col-1 img {
+				margin: 0 !important;
+			}
+		}
+
+		@media (min-width: 620px) {
+			#select-second-section-container .c-generic21646 .side-by-side-parent {
+				flex-direction: unset !important;
+				margin-bottom: unset !important;
+			}
+
+			#select-second-section-container .ticket-rotated-cards-child {
+				margin-bottom: 0 !important;
+			}
+
+			#select-second-section-container .homepage-lineup {
+				height: 910px;
+			}
+
+			#select-second-section-container .c-news__content {
+				justify-content: space-around;
+			}
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .c-ticket__card--wrapper {
+				flex: 0 0 33%;
+			}
+		}
+
+		#select-second-section-container .c-generic24134 {
+			padding: 70px 1rem;
+		}
+
+		#select-second-section-container .c-tickets21878 {
+			padding: 60px 0 40px;
+			text-align: left;
+		}
+
+		#select-second-section-container .c-tickets21878 .c-option-card {
+			float: left;
+			justify-content: flex-start;
+		}
+
+		#select-second-section-container .c-ticket__card {
+			background-color: transparent;
+			border: none;
+		}
+
+		#select-second-section-container .c-ticket__card--image {
+			height: auto;
+			border-radius: 2.2rem;
+		}
+
+		#select-second-section-container .c-option-card__title {
+			font-size: 18px;
+			font-weight: 400;
+			text-transform: uppercase;
+			word-wrap: break-word;
+			font-family: Stretch Pro;
+			letter-spacing: 1px;
+			margin-bottom: 20px;
+		}
+
+		#select-second-section-container div.news-button {
+			align-items: flex-end;
+			display: inline-block;
+		}
+
+		@media (min-width: 1350px) and (max-width: 1699px) {
+			#select-second-section-container .homepage-lineup {
+				height: 790px;
+			}
+		}
+
+		@media (min-width: 980px) and (max-width: 1349px) {
+			#select-second-section-container .homepage-lineup {
+				height: 690px;
+			}
+		}
+
+		@media (min-width: 900px) and (max-width: 979px) {
+			#select-second-section-container .homepage-lineup {
+				height: 590px;
+			}
+		}
+
+		@media (min-width: 780px) and (max-width: 899px) {
+			#select-second-section-container .homepage-lineup {
+				height: 520px;
+			}
+		}
+
+		@media (min-width: 621px) and (max-width: 779px) {
+			#select-second-section-container .homepage-lineup {
+				height: 490px;
+			}
+		}
+
+		#select-second-section-container .head-col-1-text p {
+			font-size: clamp(30px, 3vw, 48px);
+		}
+
+		#select-second-section-container .head-col-1-text p.home-sub-headline {
+			font-size: clamp(24px, 3vw, 40px);
+		}
+
+		#select-second-section-container .head-col-1 {
+			position: relative;
+			text-align: center;
+		}
+
+		#select-second-section-container .head-col-1-text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: var(--website-hangout-cream, #FFFFF5);
+			text-align: center;
+			text-shadow: 3px 3px 0px #000;
+		}
+
+		#select-second-section-container .head-col-1-btn {
+			display: flex;
+			justify-content: space-evenly;
+			text-shadow: none;
+			margin-top: 30px;
+		}
+
+		#select-second-section-container .head-col-1-text p {
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+
+		@media (max-width: 619px) {
+			#select-second-section-container .head-col-1-text p {
+				padding: 0 20px;
+			}
+		}
+
+		@media (max-width: 1600px) {
+			#select-second-section-container .head-col-1-btn {
+				width: 400px;
+			}
+		}
+
+		#select-second-section-container .head-col-1 img {
+			transition: all 1s ease-in-out 0s;
+			width: 100%;
+			margin: 100px 0;
+		}
+
+		@media (max-width: 676px) {
+			#select-second-section-container .head-col-1 img {
+				margin: 60px 0;
+			}
+		}
+
+		#select-second-section-container .head-col-1:hover img {
+			transform: rotate(180deg);
+		}
+
+		#select-second-section-container .homepage-lineup {
+			width: 100%;
+		}
+
+		#select-second-section-container .c-generic21649,
+		#select-second-section-container .c-generic21649 .o-container {
+			padding: 0;
+			width: 100%;
+		}
+
+		#select-second-section-container .c-generic21649 .o-container .side-by-side-parent {
+			gap: 0;
+			border-radius: unset;
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/column1headerbg.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			align-items: center;
+		}
+
+		#select-second-section-container .ticket-rotated-cards-parent {
+			width: 100%;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+			display: inline-flex;
+			flex-wrap: wrap;
+		}
+
+		#select-second-section-container .ticket-rotated-cards-child {
+			transform-origin: 0 0;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+			border-radius: 4px;
+			overflow: hidden;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			display: inline-flex;
+			margin-bottom: 40px;
+			transition: all 0.3s ease-in-out 0s;
+		}
+
+		#select-second-section-container .tickets-img-logo {
+			width: 310px;
+			height: 229px;
+			left: 0;
+			top: 0;
+			position: absolute;
+			border: 10px white solid;
+		}
+
+		#select-second-section-container .tickets-text-container {
+			align-self: stretch;
+			min-width: 310px;
+			max-width: 340px;
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 18px;
+			padding-bottom: 18px;
+			background: white;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			gap: 18px;
+			display: flex;
+			text-align: center;
+		}
+
+		#select-second-section-container .ticket-rotated-cards-child:hover {
+			transform: rotate(0deg) scale(1.1) !important;
+		}
+
+		#select-second-section-container .c-generic.c-generic21648 {
+			background-repeat: no-repeat;
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/hangoutticketsbg.jpg);
+			background-size: cover;
+			background-position: center;
+			padding: 70px 0;
+		}
+
+		#select-second-section-container .c-generic21648 .o-container {
+			padding: 0 10px;
+		}
+
+		#select-second-section-container .c-news-card__content {
+			border-bottom: 0;
+			flex-direction: unset;
+		}
+
+		#select-second-section-container .c-news-card__copy {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		#select-second-section-container .c-news-card__date {
+			display: none;
+		}
+
+		#select-second-section-container .primary-button,
+		#select-second-section-container .c-nav__item:last-child a.c-nav__link {
+			padding: 10px 30px;
+			background: #F36DC5;
+			box-shadow: 4px 4px 0 black;
+			border-radius: 4px;
+			overflow: hidden;
+			border: 1px black solid;
+			color: black;
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			text-transform: uppercase;
+		}
+
+		#select-second-section-container .primary-button:hover,
+		#select-second-section-container .c-nav__item:last-child a.c-nav__link:hover {
+			background: #f24b88;
+			color: #F2F1DF;
+		}
+
+		#select-second-section-container a.primary-button {
+			font-size: 30px;
+		}
+
+		#select-second-section-container .secondary-button,
+		#select-second-section-container .c-button21647,
+		#select-second-section-container .c-option-card__cta {
+			padding: 10px 30px;
+			background: white;
+			box-shadow: 4px 4px 0 black;
+			border-radius: 4px;
+			overflow: hidden;
+			border: 1px black solid;
+			color: black;
+			/* justify-content: center; 
+  align-items: center; 
+  gap: 10px; 
+  display: inline-flex */
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 30px;
+		}
+
+		#select-second-section-container .c-option-card__cta {
+			margin: 0;
+			max-width: 220px;
+		}
+
+		#select-second-section-container .c-generic.c-generic21644 .o-container {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+		}
+
+		#select-second-section-container .side-by-side-parent {
+			width: 100%;
+			height: 100%;
+			border-radius: 40px;
+			justify-content: center;
+			align-items: flex-start;
+			gap: 30px;
+			display: inline-flex;
+			flex-wrap: wrap;
+		}
+
+		#select-second-section-container .c-generic21655 .side-by-side-parent,
+		#select-second-section-container .c-generic21656 .side-by-side-parent,
+		#select-second-section-container .c-generic21657 .side-by-side-parent,
+		#select-second-section-container .c-generic21658 .side-by-side-parent {
+			gap: 0;
+			justify-content: right;
+		}
+
+		#select-second-section-container .side-by-side-child-title {
+			flex: 1 1 0;
+		}
+
+		#select-second-section-container .side-by-side-child-text {
+			align-self: stretch;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 16px;
+			display: flex;
+		}
+
+		#select-second-section-container .c-generic21646 .side-by-side-parent {
+			flex-direction: column-reverse;
+			margin-bottom: 100px;
+		}
+
+		#select-second-section-container .c-generic21645 img,
+		#select-second-section-container .c-generic21646 img {
+			width: 95%;
+			height: auto;
+		}
+
+		@media (min-width: 768px) {
+
+			#select-second-section-container .c-newsletter-signup,
+			#select-second-section-container .c-newsletter-signup__group {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				max-width: 725px;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+
+			#select-second-section-container label.c-newsletter-signup__group.c-newsletter-signup__email-group {
+				width: 355px;
+			}
+
+			#select-second-section-container label.c-newsletter-signup__group.c-newsletter-signup__email-group:nth-child(3) {
+				width: 700px;
+			}
+
+			#select-second-section-container label.c-newsletter-signup__mobile-group {
+				width: 700px;
+			}
+		}
+
+		#select-second-section-container .c-newsletter21647 {
+			padding: 0;
+			width: 100%;
+		}
+
+		#select-second-section-container .c-newsletter21647 .o-container {
+			padding: 0;
+			width: 100%;
+		}
+
+		#select-second-section-container .c-newsletter21647 .c-generic__content {
+			display: block !important;
+		}
+
+		#select-second-section-container .c-newsletter21647 .c-generic__column {
+			flex: 0 0 100%;
+			font-family: "Comfortaa";
+			padding: 70px 2rem !important;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		#select-second-section-container .c-newsletter-signup__copy h3,
+		#select-second-section-container .c-newsletter-signup__group p {
+			color: white !important;
+		}
+
+		#select-second-section-container input.c-newsletter-signup__input {
+			background-color: white;
+			padding: 1rem 1.2rem;
+			border-radius: 10px;
+			border-bottom: 0;
+			width: 100%;
+		}
+
+		#select-second-section-container .c-newsletter a {
+			color: #f2911b;
+		}
+
+		#select-second-section-container #page-tickets .fancybox__viewport {
+			margin-top: 0;
+		}
+
+		#select-second-section-container #page-tickets .f-button.is-close-btn {
+			top: 0px;
+		}
+
+		#select-second-section-container .tkt-icon {
+			height: 100px;
+			width: 100px;
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container {
+				/*
+    .tickets-header {
+        padding-left: 100px !important;
+        padding-right: 100px !important;
+    }
+    */
+			}
+
+			#select-second-section-container .ticket-type-cards-display {
+				width: 50% !important;
+			}
+
+			#select-second-section-container .ticket-type-cards.half {
+				width: 44% !important;
+			}
+
+			#select-second-section-container .tickets-header-subnav-links-display {
+				flex-direction: unset !important;
+			}
+
+			#select-second-section-container .add-on-container {
+				padding: 50px 80px !important;
+			}
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .ticket-type-icon-desk {
+				display: none;
+			}
+
+			#select-second-section-container .ticket-type-icon-mobile {
+				text-align: center;
+			}
+		}
+
+		@media (min-width: 768px) {
+			#select-second-section-container .ticket-type-icon-mobile {
+				display: none;
+			}
+		}
+
+		@media (max-width: 609px) {
+			#select-second-section-container .c-generic21660 img {
+				width: 300px;
+			}
+		}
+
+		#select-second-section-container .c-generic:has(.tickets-header) {
+			background: linear-gradient(180deg, #0075DD 0%, rgba(0, 117, 221, 0.7) 100%), url("https://aegwebprod.blob.core.windows.net/content/hangout/2024/hangoutstagheaderbg.jpg");
+			background-position: center;
+			background-size: cover;
+		}
+
+		#select-second-section-container .tickets-header {
+			width: 100%;
+			height: 100%;
+			padding-top: 60px;
+			padding-bottom: 50px;
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			gap: 40px;
+			display: inline-flex;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .tickets-header {
+				align-items: center;
+				padding-top: 20px !important;
+			}
+
+			#select-second-section-container .tickets-header-subnav-links-display {
+				gap: 7px;
+			}
+		}
+
+		#select-second-section-container .tickets-header-title {
+			text-align: center;
+			color: #fffff5;
+			font-size: 70px;
+			line-height: 70px;
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			word-wrap: break-word;
+			letter-spacing: 0.1rem;
+		}
+
+		#select-second-section-container .tickets-header-subnav {
+			padding: 20px;
+			background: #fffff5;
+			border-radius: 20px;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 8px;
+			display: flex;
+		}
+
+		#select-second-section-container .tickets-header-subnav-links {
+			font-size: 20px;
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			word-wrap: break-word;
+		}
+
+		#select-second-section-container .tickets-header-subnav-links a {
+			color: #f3911a;
+			text-decoration: underline;
+			text-underline-offset: 5px;
+		}
+
+		#select-second-section-container .tickets-header-subnav-links a:hover {
+			text-decoration: none;
+		}
+
+		#select-second-section-container .tickets-header-subnav-links-display {
+			justify-content: flex-start;
+			align-items: flex-start;
+			gap: 24px;
+			display: inline-flex;
+			flex-direction: column;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .tickets-header-subnav-links-display {
+				gap: 10px;
+			}
+		}
+
+		#select-second-section-container .c-generic.c-generic21654,
+		#select-second-section-container .c-generic.c-generic21660,
+		#select-second-section-container .c-generic.c-generic25484 {
+			padding: 40px 0 20px;
+		}
+
+		#select-second-section-container .c-generic.c-generic21655 {
+			padding-top: 0;
+		}
+
+		#select-second-section-container div.add-on-container {
+			margin: 0;
+		}
+
+		#select-second-section-container .c-generic21660 div.add-on-container {
+			margin: 50px 0;
+		}
+
+		#select-second-section-container .c-generic21659 .side-by-side-child-title,
+		#select-second-section-container .c-generic21658 .side-by-side-child-title,
+		#select-second-section-container .c-generic21657 .side-by-side-child-title,
+		#select-second-section-container .c-generic21656 .side-by-side-child-title,
+		#select-second-section-container .c-generic21655 .side-by-side-child-title,
+		#select-second-section-container .c-generic21983 .side-by-side-child-title {
+			padding: 0 1.5rem;
+		}
+
+		@media (max-width: 767px) {
+
+			#select-second-section-container .c-generic21659 .side-by-side-child-title,
+			#select-second-section-container .c-generic21658 .side-by-side-child-title,
+			#select-second-section-container .c-generic21657 .side-by-side-child-title,
+			#select-second-section-container .c-generic21656 .side-by-side-child-title,
+			#select-second-section-container .c-generic21655 .side-by-side-child-title,
+			#select-second-section-container .c-generic21983 .side-by-side-child-title {
+				padding: 0;
+			}
+		}
+
+		@media (min-width: 768px) {
+
+			#select-second-section-container .c-generic21655 .add-on-container .side-by-side-parent .ticket-type-cards-display,
+			#select-second-section-container .c-generic21656 .add-on-container .side-by-side-parent .ticket-type-cards-display,
+			#select-second-section-container .c-generic21657 .add-on-container .side-by-side-parent .ticket-type-cards-display,
+			#select-second-section-container .c-generic21658 .add-on-container .side-by-side-parent .ticket-type-cards-display {
+				flex-wrap: wrap;
+			}
+		}
+
+		#select-second-section-container .c-generic21983 {
+			padding-bottom: 60px;
+		}
+
+		#select-second-section-container .c-generic21661,
+		#select-second-section-container .c-generic21668,
+		#select-second-section-container .c-generic21688,
+		#select-second-section-container .c-generic21891 {
+			padding-top: 60px;
+		}
+
+		@media (max-width: 767px) {
+
+			#select-second-section-container .c-generic21661,
+			#select-second-section-container .c-generic21662,
+			#select-second-section-container .c-generic21663,
+			#select-second-section-container .c-generic21664,
+			#select-second-section-container .c-generic21668,
+			#select-second-section-container .c-generic21688,
+			#select-second-section-container .c-generic21891,
+			#select-second-section-container .c-generic21855,
+			#select-second-section-container .c-generic21856,
+			#select-second-section-container .c-generic21669,
+			#select-second-section-container .c-generic21857,
+			#select-second-section-container .c-generic21670 {
+				padding: 60px 1rem 0;
+			}
+
+			#select-second-section-container .c-generic21673 .c-generic__content,
+			#select-second-section-container .c-generic23037 .c-generic__content {
+				text-align: center;
+			}
+
+			#select-second-section-container .c-generic21673 .c-generic__content {
+				padding-top: 40px;
+			}
+		}
+
+		#select-second-section-container a.js-accordion-trigger {
+			color: #5444B1 !important;
+			font-size: 30px;
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			font-weight: 700;
+			text-transform: uppercase;
+			word-wrap: break-word;
+		}
+
+		#select-second-section-container .ticket-type-cards {
+			width: 100%;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			background: white;
+			box-shadow: 4px 4px 0 black;
+			border-radius: 20px;
+			border: 2px black solid;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			display: inline-flex;
+			margin: 15px;
+			/* TEXT */
+			align-self: stretch;
+			text-align: center;
+			color: black;
+			font-family: Comfortaa;
+			font-weight: 400;
+			word-wrap: break-word;
+		}
+
+		#select-second-section-container .ticket-type-cards-display {
+			display: flex;
+			width: 100%;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		#select-second-section-container .c-generic21656 .add-on-container {
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/GAPlusgradientbg.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		#select-second-section-container .c-generic21657 .add-on-container {
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/VIPgradientbg.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		#select-second-section-container .c-generic21658 .add-on-container {
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/SuperVIPgradientbg.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		#select-second-section-container .add-on-container {
+			background: white;
+			border-radius: 40px;
+			padding: 1.7rem 2.1rem;
+			margin: 50px 0;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/GAgradientbg.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
+		#select-second-section-container .c-generic21660 .add-on-container img {
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 10px;
+			border-radius: 20px;
+			max-width: 443px;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .add-on-container {
+				padding: 1.7rem 1.8rem;
+			}
+		}
+
+		#select-second-section-container .c-generic21660,
+		#select-second-section-container .c-generic21579,
+		#select-second-section-container .c-generic21591,
+		#select-second-section-container .c-generic21695,
+		#select-second-section-container .c-generic21671,
+		#select-second-section-container .c-newsletter21647 .c-generic__column,
+		#select-second-section-container .c-generic23034,
+		#select-second-section-container .c-generic24172 {
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/hmf-PurpleTieDye.jpg);
+			/* background: linear-gradient(180deg, rgba(84, 68, 177, 0.8) 0%, rgba(84, 68, 177, 0.8) 100%), url("https://aegwebprod.blob.core.windows.net/content/hangout/2024/hangoutswirl.jpg"); */
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+
+		#select-second-section-container .c-generic21671 {
+			padding: 60px 0;
+		}
+
+		#select-second-section-container p.ticket-tagline {
+			font-size: 18px;
+			line-height: 28px;
+		}
+
+		#select-second-section-container p.ticket-prices {
+			font-size: 16px;
+			line-height: 24.48px;
+		}
+
+		#select-second-section-container .c-carousel {
+			height: 500px;
+			margin: 25px auto;
+			width: 80%;
+		}
+
+		#select-second-section-container .c-carousel__item {
+			max-height: 100%;
+			max-width: 100%;
+			height: 100%;
+			margin: 0 auto;
+		}
+
+		#select-second-section-container .c-carousel__cell {
+			background: transparent;
+			height: 100%;
+			width: 400px;
+		}
+
+		#select-second-section-container .c-carousel.is-fullscreen .c-carousel__cell {
+			display: -webkit-box;
+		}
+
+		#select-second-section-container .c-carousel.is-fullscreen {
+			background: linear-gradient(180deg, rgba(255, 255, 245, 0.7) 38%, rgba(237, 220, 199, 0.7) 69%) !important;
+			z-index: 3000;
+			height: 100%;
+			margin-top: 0;
+			padding-top: 25px;
+		}
+
+		#select-second-section-container .is-fullscreen .c-carousel__item {
+			height: 100%;
+			width: 100%;
+			max-width: 100%;
+			z-index: 5 !important;
+		}
+
+		#select-second-section-container .flickity-slider {
+			position: absolute;
+			width: 100% !important;
+			height: 100%;
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .flickity-slider {
+				max-height: none;
+				height: 100%;
+			}
+		}
+
+		@media (min-width: 768px) {
+			#select-second-section-container .flickity-slider {
+				max-height: none;
+				height: 100%;
+			}
+		}
+
+		#select-second-section-container .flickity-viewport {
+			overflow: hidden;
+			overflow-x: hidden;
+			overflow-y: hidden;
+			position: relative;
+		}
+
+		#select-second-section-container .c-carousel.is-fullscreen .flickity-viewport {
+			height: 100%;
+			max-height: 100%;
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .c-carousel.is-fullscreen .flickity-viewport {
+				height: 100%;
+				max-height: 100%;
+			}
+		}
+
+		@media (min-width: 768px) {
+			#select-second-section-container .c-carousel.is-fullscreen .flickity-viewport {
+				height: 100%;
+				max-height: 100%;
+			}
+		}
+
+		#select-second-section-container .flickity-button {
+			position: absolute;
+			background: hsl(321deg, 85%, 69%);
+			border: none;
+			color: #333;
+		}
+
+		#select-second-section-container .c-poster__poster {
+			max-width: 100%;
+		}
+
+		#select-second-section-container footer.c-footer {
+			background: url(https://aegwebprod.blob.core.windows.net/content/hangout/2024/HangoutFooter.png);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		#select-second-section-container footer.c-footer section.social-icons .c-footer__social a.c-footer__icon svg {
+			color: black;
+			fill: black;
+		}
+
+		#select-second-section-container footer.c-footer section.legal-links ul.c-footer__links li.c-footer__link--legal-links a.c-footer__link,
+		#select-second-section-container footer.c-footer section.copyright .c-footer__copyright {
+			color: black;
+			font-family: "Comfortaa";
+		}
+
+		#select-second-section-container footer.c-footer section.copyright {
+			order: 3;
+			margin-left: 80px;
+		}
+
+		#select-second-section-container footer.c-footer section.copyright,
+		#select-second-section-container footer.c-footer section.social-icons .c-footer__social {
+			display: flex;
+			justify-content: flex-start;
+		}
+
+		#select-second-section-container footer.c-footer section.legal-links {
+			position: absolute;
+			right: 60px;
+			width: 60%;
+		}
+
+		#select-second-section-container footer.c-footer section.social-icons {
+			margin-left: 60px;
+		}
+
+		#select-second-section-container footer.c-footer section.legal-links ul.c-footer__links {
+			justify-content: flex-end;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container footer.c-footer section.legal-links {
+				position: relative;
+				right: auto;
+				order: 2;
+			}
+
+			#select-second-section-container footer.c-footer section.legal-links ul.c-footer__links li.c-footer__link--legal-links:not(:last-child):after {
+				display: none;
+			}
+
+			#select-second-section-container footer.c-footer section.copyright,
+			#select-second-section-container footer.c-footer section.social-icons .c-footer__social {
+				justify-content: center;
+			}
+
+			#select-second-section-container footer.c-footer section.social-icons {
+				margin-left: 0;
+			}
+
+			#select-second-section-container footer.c-footer section.copyright {
+				margin-left: 0;
+			}
+
+			#select-second-section-container footer.c-footer section.social-icons {
+				order: 1;
+			}
+		}
+
+		#select-second-section-container .c-faqs {
+			padding-top: 0;
+		}
+
+		#select-second-section-container .c-accordion-title {
+			font-weight: 700;
+			font-size: 18px;
+			padding: 0.5rem 0 0 2.5rem;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .c-accordion-title {
+				font-size: 18px;
+				padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+			}
+
+			#select-second-section-container .c-accordion {
+				margin-left: 3px;
+			}
+		}
+
+		#select-second-section-container #partner-listing ul {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			/* gap: 40px; */
+			-ms-flex-pack: center;
+			justify-content: center;
+			list-style: none;
+			padding: 0;
+		}
+
+		#select-second-section-container #partner-listing ul li {
+			display: -ms-flexbox;
+			display: flex;
+			-ms-flex-pack: center;
+			justify-content: center;
+			/* width: 45%; */
+		}
+
+		@media only screen and (min-width: 768px) {
+			#select-second-section-container #partner-listing ul li {
+				/* width: 29%; */
+			}
+		}
+
+		@media only screen and (min-width: 1200px) {
+			#select-second-section-container #partner-listing ul li {
+				/* width: 22%; */
+			}
+		}
+
+		#select-second-section-container #partner-listing ul {
+			font-size: 0.9em;
+			list-style-type: none;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+
+		#select-second-section-container #partner-listing ul li {
+			display: inline;
+			padding: 5px;
+			position: relative;
+		}
+
+		#select-second-section-container #partner-listing ul li a {
+			color: #702829;
+		}
+
+		#select-second-section-container #partner-listing img.partner-logo {
+			height: auto;
+			margin: 25px;
+			width: auto;
+		}
+
+		@media (min-width: 768px) {
+			#select-second-section-container #partner-listing img.partner-logo {
+				height: 200px;
+				margin: 15px;
+			}
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container #partner-listing img.partner-logo {
+				height: 150px;
+				margin: 0 15px;
+			}
+		}
+
+		#select-second-section-container .c-generic23034 {
+			padding-bottom: 60px;
+		}
+
+		#select-second-section-container .what-can-i-bring {
+			padding: 50px 40px !important;
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .what-can-i-bring {
+				padding: 50px 40px !important;
+			}
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .what-can-i-bring {
+				padding: 1.7rem 1.4rem !important;
+			}
+
+			#select-second-section-container .c-generic23034 .c-generic__column:last-child {
+				margin-top: 20px;
+			}
+		}
+
+		#select-second-section-container .c-generic23034 .c-heading--primary,
+		#select-second-section-container .c-generic24172 .c-heading--primary {
+			text-align: center;
+			color: #fff;
+			margin-top: 20px;
+		}
+
+		#select-second-section-container ul.prohibited-items,
+		#select-second-section-container ul.allowed-items {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		#select-second-section-container ul.prohibited-items li,
+		#select-second-section-container ul.allowed-items li {
+			margin-left: 0;
+			margin-bottom: 10px;
+			font-size: 18px;
+		}
+
+		#select-second-section-container span.allowed,
+		#select-second-section-container span.disallowed {
+			padding: 6px 10px;
+			border-radius: 8px;
+			color: #FFE9D7;
+			font-weight: bold;
+			font-size: 14px;
+			margin-right: 5px;
+		}
+
+		#select-second-section-container span.allowed {
+			background-color: #62af8c;
+		}
+
+		#select-second-section-container span.disallowed {
+			background-color: #ff4501;
+		}
+
+		#select-second-section-container .c-filterable__imageContainer img {
+			border-radius: 12px;
+		}
+
+		#select-second-section-container .c-radial__text {
+			padding-left: 5px;
+		}
+
+		#select-second-section-container .c-filterable__radials {
+			padding-top: 0;
+			margin: 0;
+		}
+
+		@media (min-width: 768px) {
+			#select-second-section-container .c-filterable__radials {
+				padding-top: 0;
+				margin: 0 0 40px;
+			}
+		}
+
+		#select-second-section-container .c-filterable__labels {
+			padding-top: 0;
+		}
+
+		#select-second-section-container .c-radial__text {
+			font-family: "alternate-gothic-condensed-a", sans-serif;
+			text-transform: uppercase;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container .c-filterable__container {
+				padding-top: 20px;
+			}
+
+			#select-second-section-container .c-filterable__labels {
+				justify-content: center;
+			}
+
+			#select-second-section-container .c-filterable__content {
+				padding-top: 30px;
+			}
+		}
+
+		#select-second-section-container #page-experience .c-filterable__radials {
+			display: none;
+		}
+
+		#select-second-section-container #page-experience .c-filterable__radials {
+			display: block;
+		}
+
+		@media (max-width: 768px) {
+			#select-second-section-container .c-filterable__labels {
+				position: relative;
+			}
+		}
+
+		#select-second-section-container .getting-here-imgs img {
+			width: 100%;
+		}
+
+		#select-second-section-container .getting-here-wrap {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+		}
+
+		@media (min-width: 1024px) {
+			#select-second-section-container .getting-here-wrap {
+				flex-direction: column;
+			}
+		}
+
+		#select-second-section-container .ot-sdk-show-settings {
+			color: #000000;
+			font-size: 0.95rem;
+			font-family: "Comfortaa";
+		}
+
+		#select-second-section-container a:not([href]):not([tabindex]) {
+			color: #000000;
+		}
+
+		#select-second-section-container div.photo-box {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		@media (max-width: 767px) {
+			#select-second-section-container div.photo-box {
+				margin: 20px 0;
+			}
+		}
+
+		#select-second-section-container div.photo-box img.thumbnail-img {
+			margin: 10px 0 0;
+			max-width: 350px;
+			box-shadow: 4px 4px 0 black;
+			border-radius: 20px;
+			border: 2px black solid;
+		}
+	</style>
+
 	<style id="classic-theme-styles-inline-css" type="text/css">
 		/*! This file is auto-generated */
 		.wp-block-button__link {
@@ -1194,6 +3849,514 @@
 					</style>
 				</section>
 				<section class="sectison about-festsival" id="section_934188751">
+
+
+
+					<div class="o-wrap" id="select-second-section-container">
+						<div class="c-filterable__wrapper" id="experience-tiles" alt="">
+							<section class="c-filterable__container">
+								<div class="c-filterable__radials">
+
+									<div class="c-filterable__labels">
+										<label class="c-radial__container">
+											<input data-filter-all class="c-radial" type="radio" name="filter" checked>
+											<span class="c-radial__background"></span>
+											<span class="c-radial__text">All</span>
+										</label>
+										<label class="c-radial__container">
+											<input data-filter-id="153" class="c-radial" type="radio" name="filter">
+											<span class="c-radial__background"></span>
+											<span class="c-radial__text">Activities</span>
+										</label>
+										<label class="c-radial__container">
+											<input data-filter-id="189" class="c-radial" type="radio" name="filter">
+											<span class="c-radial__background"></span>
+											<span class="c-radial__text">Food &amp; Drink</span>
+										</label>
+										<label class="c-radial__container">
+											<input data-filter-id="190" class="c-radial" type="radio" name="filter">
+											<span class="c-radial__background"></span>
+											<span class="c-radial__text">Music</span>
+										</label>
+									</div>
+								</div>
+								<div class="c-filterable__content">
+									<div class="c-filterable__column" data-filter-v2 data-filter='["190"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Mainstage"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-z67ouKBfhGJ1xobd5vKaZH9jSEyttWHOdwBJUj74.jpg"
+												alt="Mainstage">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Music</span>
+											<h3 class="c-filterable__title">HANGOUT MAIN STAGE</h3>
+											<div class="c-filterable__description">
+												<p>The picture-perfect backdrop for your core Hangout memories, all the
+													way
+													until the last note of Sweet Home Alabama (IYKYK). Pro Tip: Soak up
+													the main
+													stage energy poolside as a VIP!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["190"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Shoreline Stage"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-6mnJbgwrUhPXtSy1QbA68GlvTC3jx2rikigboYYl.jpg"
+												alt="Shoreline Stage">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Music</span>
+											<h3 class="c-filterable__title">SHORELINE PRESENTED BY MALIBU RUM</h3>
+											<div class="c-filterable__description">
+												<p>A brand new stage for 2024, set right along the water. Hot acts and
+													cold
+													drinks? It doesn't get better.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["190"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Crowd Cheering"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-hG5nQqWj38JFNW75CtfdqY2ezoh7zKFtbWc8sXOX.jpg"
+												alt="Crowd Cheering">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Music</span>
+											<h3 class="c-filterable__title">BOOM ON THE BEACH PRESENTED BY SHEIN</h3>
+											<div class="c-filterable__description">
+												<p>We&rsquo;re taking this fan-favorite dance-centric stage from the
+													streets to
+													the sand in 2024!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["190"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Mermaid Stage"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-RtqTnAdYQEuHepY3YfRNJDwemIO0ZfGEp94AlB4E.jpg"
+												alt="Mermaid Stage">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Music</span>
+											<h3 class="c-filterable__title">MERMAID STAGE</h3>
+											<div class="c-filterable__description">
+												<p>Mosey on over for performances by up and coming stars so you can say
+													you saw
+													them first, at Hangout!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["190"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Girl on swing"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-BbpQbBssKa5P2MB9ihuMEnDX2f7BZXfFnRsJaXBn.jpg"
+												alt="Girl on swing">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Music</span>
+											<h3 class="c-filterable__title">MONSTER BEACH CLUB</h3>
+											<div class="c-filterable__description">
+												<p>Lose yourself to dance during all day beach parties at the Monster
+													Energy
+													Beach Club. Then take a dip in the ocean and you'll be energized for
+													the
+													evening's headliners.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Guys playing beach volleyball" src="images/experience">
+											<img class="u-image"
+												src="images/469-B4XggKUiZKelAqEsNQE1btiSWYD8L0lkXCXzmpM7.jpg"
+												alt="Guys playing beach volleyball">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">CORONA BEACH</h3>
+											<div class="c-filterable__description">
+												<p>After you've wrapped up that epic game of volleyball with new festy
+													friends,
+													sip on a cold Corona and cool off in the water at Corona Beach.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["189"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Hangout fans eating popsicles" src="images/experience">
+											<img class="u-image"
+												src="images/469-15ltBWPYlgJlRYBkvBnvEeUAF55X6i8UmNJp7Bkl.jpg"
+												alt="Hangout fans eating popsicles">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Food &amp; Drink</span>
+											<h3 class="c-filterable__title">DELICIOUS EATS</h3>
+											<div class="c-filterable__description">
+												<p>Choose from dozens of restaurants throughout the festival for a quick
+													bite or
+													stop by the Hangout Restaurant for a shaded air-conditioned meal. We
+													have
+													food options for everyone so you can refuel and go see the next
+													show!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Two Hangout fans on hammock"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-wzJNn7Q6PRT9GMTYRqaF6ZUMP3WGmYneBmbnIc8j.jpg"
+												alt="Two Hangout fans on hammock">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">HAMMOCK BEACH</h3>
+											<div class="c-filterable__description">
+												<p>Hang at the chillest spot in the festival where you can rest &amp;
+													recharge
+													under a canopy of palm trees as you listen to the waves crash on the
+													white
+													sand.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Hangout wedding chapel"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-nNUbv26ENtWg6P80LhYu7KfhR8GpLQCYLrNPrzwI.jpg"
+												alt="Hangout wedding chapel">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">WEDDING CHAPEL</h3>
+											<div class="c-filterable__description">
+												<p>Spread the love at the Hangout Wedding Chapel. Whether it&rsquo;s
+													your festie
+													bestie, your long-time love or your new flame, the Wedding Chapel
+													celebrates
+													love in any form.</p>
+
+												<p>To schedule a real ceremony, <a
+														href="mailto:weddings@hangoutmusicfest.com"
+														target="_blank">email us</a>!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Hangout fans in front of Shaka man statue" src="images/experience">
+											<img class="u-image"
+												src="images/469-L4NBUxUufNNMK4Ev81n5Lm8UlUOjHRzDZdJj60QU.jpg"
+												alt="Hangout fans in front of Shaka man statue">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">ART</h3>
+											<div class="c-filterable__description">
+												<p>You never know what you'll find at Hangout. Around every corner
+													you'll find a
+													surprise. We're busy dreaming up new ideas.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Psychedelic bus"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-dhL8zGb8LdW9PMSveM3fhPq2GyTD1dhK93jxQ0AM.jpg"
+												alt="Psychedelic bus">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">BEATBOX BLOCK PARTY</h3>
+											<div class="c-filterable__description">
+												<p>School&rsquo;s out, disco is (back) in! We took a classic yellow
+													school bus
+													and gave it new life. Silver and rainbow, furry and shiny,
+													it&rsquo;s part
+													art and all fun! Grab a Beatbox and come over and join the party.
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["189"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Group of Girls Enjoying Food" src="images/experience">
+											<img class="u-image"
+												src="images/469-buZ5mJM3TQRpHFWNGHEI0Nd8u7rgVS76Dyq9AQKM.jpg"
+												alt="Group of Girls Enjoying Food">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Food &amp; Drink</span>
+											<h3 class="c-filterable__title">NOSH PIT</h3>
+											<div class="c-filterable__description">
+												<p>Don&rsquo;t forget to nosh before you mosh. The Hangout Nosh Pit is
+													serving
+													snacks all day long in this brand-new shaded dining pavilion
+													adjacent to
+													Boom on the Beach.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="The Great Lawn"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-kz30vTpasN3zOzXnfXIcEVv8H37SiNexdRsWHvHE.jpg"
+												alt="The Great Lawn">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">THE GREAT LAWN</h3>
+											<div class="c-filterable__description">
+												<p>With views of the Hangout Main Stage and Shoreline presented by
+													Malibu Rum,
+													the Great Lawn is the spot to snag exclusive Hangout merch and take
+													a break
+													from the sand on the wave lawn.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="TO WRITE LOVE ON HER ARMS"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-15Bk2FYAdBK7qdQSyQwKOJ7PUHrXuXRSSREMVX5D.jpg"
+												alt="TO WRITE LOVE ON HER ARMS">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">TO WRITE LOVE ON HER ARMS</h3>
+											<div class="c-filterable__description">
+												<p>To Write Love on Her Arms is a nonprofit movement dedicated to
+													presenting
+													hope and finding help for people struggling with depression,
+													addiction,
+													self-injury, and suicide. TWLOHA exists to encourage, inform,
+													inspire, and
+													invest directly into treatment and recovery.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="HeadCount"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-ZPSApxnOjUU2zB579t4XvrJEakcMwjpFtrhWgoFr.jpg"
+												alt="HeadCount">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">HEADCOUNT</h3>
+											<div class="c-filterable__description">
+												<p>HeadCount is a non-partisan organization that uses the power of music
+													to
+													register voters and promote participation in democracy. We reach
+													young
+													people and music fans where they already are - at concerts and
+													online - to
+													inform and empower.&nbsp;</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Two Malibu Cocktails"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-DxtJZWKphFFh25GAPAn3VFAe5XPtusNvsNvIjpp1.jpg"
+												alt="Two Malibu Cocktails">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">THE OASIS PRESENTED BY MALIBU RUM</h3>
+											<div class="c-filterable__description">
+												<p>Vacation mode: engaged. Relax Gulfside in &ldquo;The Oasis&rdquo; -
+													Hangout&rsquo;s brand new Gulfside experience featuring shade,
+													cooling
+													misters, beach lounge chairs and cabanas, Malibu Rum frozen
+													cocktails, water
+													access, sandcastles and more.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="People Smiling at the Shein Logo" src="images/experience">
+											<img class="u-image"
+												src="images/469-WCYBly63VifZTKR9ctvdN1WRuX6mMHrbzS6Lghrw.jpg"
+												alt="People Smiling at the Shein Logo">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">SHEIN BEACH CLUB</h3>
+											<div class="c-filterable__description">
+												<p>Get ready to soak up the ultimate fest vibe at the SHEIN Beach Club!
+													Level up
+													your look with FREE accessories &amp; personalized visors. Grab your
+													squad
+													&amp; kickback with a cold treat. We've got you covered for all the
+													festival
+													fun!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Three People With Slurpees"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-ABUn5EqxIbGUrxiPNx1CNtwlJCFdtc6CQGiTksdq.jpg"
+												alt="Three People With Slurpees">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">SLURPEE&reg; TRUCK</h3>
+											<div class="c-filterable__description">
+												<p>Chill out with a free Slurpee&reg; drink. The iconic Slurpee&reg;
+													Truck will
+													pass out free Slurpee&reg; drinks to all festival goers. Stop by to
+													try fan
+													favorite flavors like Cherry and Coca-Cola. Slurpee is a beloved
+													frozen
+													beverage of millions and a pop culture icon. It&rsquo;s more than a
+													frozen
+													drink, it&rsquo;s a lifestyle.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Woman Getting Flowers Placed in Her Hair" src="images/experience">
+											<img class="u-image"
+												src="images/469-NRQsYOVHVmyXfulVaPIlCZ9mgfHkarvme15v0WMj.jpg"
+												alt="Woman Getting Flowers Placed in Her Hair">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">EVA NYC TROPICAL SPA</h3>
+											<div class="c-filterable__description">
+												<p>EVA NYC is leveling up the Hangout Tropical Spa with festival braids,
+													hair
+													glitter and makeup stations outfitted with endless EVA NYC products
+													for a
+													midday refresh.</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["189"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Two fans sitting down at Cuervo cabana" src="images/experience">
+											<img class="u-image"
+												src="images/469-AHlLqPSqBCCrayokMMwrULkN1NR2GrKDEf8n3Njr.jpg"
+												alt="Two fans sitting down at Cuervo cabana">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Food &amp; Drink</span>
+											<h3 class="c-filterable__title">JOSE CUERVO</h3>
+											<div class="c-filterable__description">
+												<p>From sunrise to sunset, the Cuervo party never stops when
+													you&rsquo;re
+													hanging beachside and sippin&rsquo; a Cuervo cocktail</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Two fans in a blue Ford Bronco" src="images/experience">
+											<img class="u-image"
+												src="images/469-fCrd5kr720iBBfrrA5zKGMt0g4k9wBokg9ivonAC.jpg"
+												alt="Two fans in a blue Ford Bronco">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities</span>
+											<h3 class="c-filterable__title">FORD BRONCO</h3>
+											<div class="c-filterable__description">
+												<p>Get ready to rev up your Hangout Fest experience! Join us for an
+													up-close
+													encounter with some Built Wild Broncos, free giveaways, exclusive
+													merch, and
+													a chance to elevate your festival adventure. See you there! </p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["189"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage"
+												alt="Fans hanging out on couch in Jim Beam Backyard setup"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-TuBS5izqdhLelPUi5u4UfyfSWwJAABSCrEThMmko.jpg"
+												alt="Fans hanging out on couch in Jim Beam Backyard setup">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Food &amp; Drink</span>
+											<h3 class="c-filterable__title">JIM BEAM BACKYARD</h3>
+											<div class="c-filterable__description">
+												<p>Jim Beam&reg; wants to welcome those who are 21+ to the best kind of
+													backyard
+													hangout, where people embrace who they are without judgment and
+													create
+													carefree moments. Join us for games, and swag all weekend long as we
+													beat
+													the heat and "hang loose" on the shore!</p>
+											</div>
+										</div>
+									</div>
+									<div class="c-filterable__column" data-filter-v2 data-filter='["153", "189"]'>
+										<div class="c-filterable__imageContainer">
+											<img class="c-filterable__backgroundImage" alt="Fan at M&amp;M booth"
+												src="images/experience">
+											<img class="u-image"
+												src="images/469-hFQnSMllEm3yubXJbA4d7PjdaIFAexiL7ea0OJdL.png"
+												alt="Fan at M&amp;M booth">
+										</div>
+										<div class="c-filterable__textContent c-wysiwyg__container">
+											<span class="c-filterable__span">Activities, Food &amp; Drink</span>
+											<h3 class="c-filterable__title">M&amp;M'S&reg; SWEET TOUR</h3>
+											<div class="c-filterable__description">
+												<p>Dreaming of a sweet treat between sets? Stop by to enjoy all the
+													deliciousness of M&amp;M'S&reg; Peanut Butter &amp; explore a world
+													of
+													colorful, musical fun. Plus, snap a pic at our photo station &amp;
+													snag
+													exclusive swag to take home with you!</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+
+
+					</div>
+
 					<style>
 						#section_934188751 {
 							padding-top: 30px;
@@ -1230,8 +4393,6 @@
 										/* display: ; */
 										text-align: center;
 									}
-
-									
 								</style>
 							</div>
 
@@ -1271,8 +4432,9 @@
 									</div>
 									<a href="https://www.facebook.com/Beach-Please-105500362103676/" class="social-as"
 										style="color: white" ;><i class="fa-brands fa-facebook"></i></a>
-									<a href="https://www.instagram.com/escapebeachfest?igsh=MXJnNGRqZWNyeWZxbg%3D%3D" class="social-as"
-										style="color: white" ;><i class="fa-brands fa-instagram"></i></a>
+									<a href="https://www.instagram.com/escapebeachfest?igsh=MXJnNGRqZWNyeWZxbg%3D%3D"
+										class="social-as" style="color: white" ;><i
+											class="fa-brands fa-instagram"></i></a>
 									<!-- <a href="https://youtube.com/channel/UC7v5tl4HZB1aFaa5k5_BUHQ" class="social-as"
 										style="color: white" ;><i class="fa-brands fa-youtube"></i></a>
 									<a href="https://www.tiktok.com/@beachplease" class="social-as" style="color: white"
@@ -1713,6 +4875,9 @@ The IP2Location Redirection is using IP2Location LITE geolocation database. Plea
 	<noscript>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:700,regular" media="all">
 	</noscript>
+
+	<script type="text/javascript" src="js/js-app.js">
+	</script>
 </body>
 
 </html>
