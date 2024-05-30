@@ -20227,7 +20227,7 @@ button.flickity-button.flickity-prev-next-button.previous {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin: 0 20px 5px 10px
+    margin: 0 20px 5px 10px;
 }
 
 .c-radial__container:last-of-type {
@@ -20394,6 +20394,14 @@ button.flickity-button.flickity-prev-next-button.previous {
 
 .c-radial__text {
     color: #fff;
+}
+
+.c-radial {
+    margin: 10px;
+}
+
+#select-second-section-container .c-radial__text {
+    padding-left: 0 !important;
 }
 
 .c-filterable__description {
