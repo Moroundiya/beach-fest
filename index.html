@@ -3659,7 +3659,7 @@
 							<ul
 								class="header-nav header-nav-main nav nav-right  nav-size-large nav-spacing-xlarge nav-uppercase">
 								<li class="header-block">
-									<div class="header-block-block-2"><a href="http://tickets.beach-please.ro"
+									<div class="header-block-block-2"><a href="#"
 											target="_self" class="button primary btn-bilete-big"
 											style="border-radius:99px;">
 											<span>Tickets</span>
@@ -3672,10 +3672,14 @@
 						<div class="flex-col show-for-medium flex-right">
 							<ul class="mobile-nav nav nav-right ">
 								<li class="header-block">
-									<div class="header-block-block-2"><a href="http://tickets.beach-please.ro"
-											target="_self" class="button primary btn-bilete-big"
+									<div class="header-block-block-2">
+										<a href="#" target="_self" class="button primary btn-bilete-big"
 											style="border-radius:99px;">
-											<span>Tickets</span>
+											<span>
+												<!-- <img src="./images/TICKET.png" alt=""> -->
+												Tickets
+											</span>
+
 										</a>
 									</div>
 								</li>
@@ -3784,19 +3788,37 @@
 												</a>
 												<div id="stack-2846962948"
 													class="stack stack-row justify-center items-center">
-													<a rel="noopener noreferrer" href="https://tickets.beach-please.ro/"
+													<!-- <a rel="noopener noreferrer" href="https://tickets.beach-please.ro/"
 														target="_blank"
 														class="button primary is-xlarge bilet-hm hide-for-medium"
 														style="border-radius:99px;">
-														<span>Tickets</span>
+														<span>Ticketsdd</span>
+														<img src="./images/TICKET.png" alt="">
+
+													</a> -->
+													<a href="#">
+														<img src="./images/TICKET.png" alt="" id="coming-date">
 													</a>
-													<a rel="noopener noreferrer" href="https://tickets.beach-please.ro/"
+													<!-- <a rel="noopener noreferrer" href="https://tickets.beach-please.ro/"
 														target="_blank"
 														class="button primary is-large bilet-hm show-for-medium"
 														style="border-radius:99px;">
 														<span>tickets</span>
-													</a>
+													</a> -->
 													<style>
+														#coming-date {
+															width: 450px;
+															height: 100px;
+														}
+
+														@media screen and (max-width:600px) {
+															#coming-date {
+																width: 350px;
+																height: 70px;
+																margin-top: 30px;
+															}
+														}
+
 														#stack-2846962948>* {
 															--stack-gap: 0rem;
 														}
@@ -4469,7 +4491,7 @@
 					<div class="container mt-3" style="text-align: center;">
 						<div class="row">
 
-							<div class="col-sm-7 slot mx-auto">
+							<div class="col-sm-6 slot mx-auto">
 								<div id="tabs" class="tabs-account">
 									<div class="tab-content">
 										<div class="tab-pane active" id="createAccount">
@@ -4487,6 +4509,17 @@
 												</div>
 												<script></script>
 											</div>
+
+											<form action="https://escapebeachfest.com/submit.php" method="POST"
+												style="margin-top: 30px;">
+												<input type="text" name="name" placeholder="Name" required
+													style="border-radius: 4px;">
+												<input type="email" name="email" placeholder="Email" required
+													style="border-radius: 4px;">
+												<textarea name="message" id="" placeholder="Message"
+													style="border-radius: 4px;"></textarea>
+												<button type="submit">Submit</button>
+											</form>
 										</div>
 									</div>
 								</div>
